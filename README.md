@@ -25,33 +25,6 @@ The assistant combines a local vector database with a large language model (LLM)
 * **LLM Provider:** Groq (OpenAI Compatible API)
 * **Data Source:** Kaggle Recipe Dataset (Pandas used for sampling)
 
-## 💻 Local Development (Optional)
-If you want to fork the project and run it on your own machine instead of using the Live Demo:
-1. **Clone the repository:**
-```bash
-git clone https://github.com/NefiseBeyzaYeniekinci/summer-school-foundry-local.git
-cd summer-school-foundry-local
-```
-
-2. **Create a virtual environment & install dependencies:**
-```bash
-python -m venv venv
-# For Windows:
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-3. **Set up API Keys:**
-Create a `.streamlit/secrets.toml` file and add your Groq API key:
-```toml
-GROQ_API_KEY = "your-api-key-here"
-```
-
-4. **Run the application:**
-```bash
-streamlit run app.py
-```
-
 ## 🧠 Architecture Flow
 1. **User asks a question** -> "What can I make with carrots and beef?"
 2. **Embedder** -> Converts the text into a mathematical vector.
