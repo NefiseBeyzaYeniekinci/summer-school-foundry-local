@@ -35,7 +35,7 @@ def get_top_recipes(query_embedding, db_path="recipes.db", top_k=3):
     scored_results.sort(key=lambda x: x[0], reverse=True)
     return scored_results[:top_k]
 
-def ask_foundry_local(context_text, user_question, model_name="phi-3.5-mini"):
+def ask_groq(context_text, user_question, model_name="llama-3.1-8b-instant"):
     prompt = f"""
 Sen yetenekli bir mutfak asistanısın. Aşağıdaki tarif bilgilerini kullanarak kullanıcının sorusuna cevap ver.
 Eğer cevap bu metinlerde yoksa, "Bilmiyorum, sistemimde bu tarif yok" şeklinde dürüstçe yanıtla.
@@ -48,7 +48,7 @@ Eğer cevap bu metinlerde yoksa, "Bilmiyorum, sistemimde bu tarif yok" şeklinde
     """
     
     try:
-        client = OpenAI(base_url="http://localhost:8080/v1", api_key="foundry-local")
+        client = OpenAI(base_url="https://api.groq.com/openai/v1", api_key=st.secrets["GROQ_API_KEY"])
         response = client.chat.completions.create(
             model=model_name,
             messages=[
@@ -59,7 +59,7 @@ Eğer cevap bu metinlerde yoksa, "Bilmiyorum, sistemimde bu tarif yok" şeklinde
         )
         return response.choices[0].message.content
     except Exception as e:
-        return f"Foundry Local ile iletişim kurulamadı.\n\nHata Detayı: {e}\n\n**Lütfen Microsoft Foundry Local servisinin çalıştığından emin olun.**"
+        return f"Yapay zeka ile iletişim kurulamadı.\n\nHata Detayı: {e}"
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -87,7 +87,7 @@ if prompt := st.chat_input("Bana bir yemek tarifi sor... (Örn: How to make a ch
                 context_text += f"\n---\n{text}\n"
                 sources_text += f"**{i+1}. {title}** (Benzerlik: %{int(score*100)})\n"
             
-            answer = ask_foundry_local(context_text, prompt)
+            answer = ask_groq(context_text, prompt)
             
             st.markdown(answer)
             with st.expander("Kullanılan Kaynaklar (Tıkla ve Aç)"):
