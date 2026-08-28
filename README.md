@@ -4,7 +4,9 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.62-red.svg)
 ![RAG](https://img.shields.io/badge/AI-RAG%20Architecture-brightgreen.svg)
 
-This project is a **Retrieval-Augmented Generation (RAG)** based Artificial Intelligence Kitchen Assistant. It was developed following the methodology of the "Microsoft Foundry Local" 1-month summer school project plan.
+This project is a **Retrieval-Augmented Generation (RAG)** based Artificial Intelligence Kitchen Assistant. It was originally developed following the methodology of the "Microsoft Foundry Local" 1-month summer school project plan, and is now fully deployed to the cloud!
+
+**🔥 Live Demo:** [https://local-rag-assistant.streamlit.app/](https://local-rag-assistant.streamlit.app/)
 
 The assistant combines a local vector database with a large language model (LLM) to provide highly accurate, creative, and domain-restricted culinary advice.
 
@@ -23,8 +25,8 @@ The assistant combines a local vector database with a large language model (LLM)
 * **LLM Provider:** Groq (OpenAI Compatible API)
 * **Data Source:** Kaggle Recipe Dataset (Pandas used for sampling)
 
-## 🚀 How to Run Locally
-
+## 💻 Local Development (Optional)
+If you want to fork the project and run it on your own machine instead of using the Live Demo:
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/NefiseBeyzaYeniekinci/summer-school-foundry-local.git
