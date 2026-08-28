@@ -35,7 +35,7 @@ def get_top_recipes(query_embedding, db_path="recipes.db", top_k=3):
     scored_results.sort(key=lambda x: x[0], reverse=True)
     return scored_results[:top_k]
 
-def ask_groq(context_text, user_question, model_name="llama-3.1-8b-instant"):
+def ask_groq(context_text, user_question, model_name="llama3-8b-8192"):
     prompt = f"""
 Sen yetenekli bir mutfak asistanısın. Aşağıdaki tarif bilgilerini kullanarak kullanıcının sorusuna cevap ver.
 Eğer cevap bu metinlerde yoksa, "Bilmiyorum, sistemimde bu tarif yok" şeklinde dürüstçe yanıtla.
