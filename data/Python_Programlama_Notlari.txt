@@ -1,0 +1,20 @@
+# Python Programlama Temelleri - Sıkça Sorulan Sorular ve Notlar
+
+## Python Nedir?
+Python, nesne yönelimli, yorumlamalı, birimsel (modüler) ve etkileşimli yüksek seviyeli bir programlama dilidir. Python, kod okunabilirliğini vurgulayan bir sözdizimine sahiptir ve kod yazmayı çok kolaylaştırır.
+
+## List ve Tuple Arasındaki Fark Nedir?
+Listeler (list) değiştirilebilir (mutable) veri yapılarıdır; yani oluşturulduktan sonra eleman eklenebilir, silinebilir veya değiştirilebilir. Köşeli parantez `[]` ile tanımlanırlar.
+Tuple'lar (demetler) ise değiştirilemez (immutable) veri yapılarıdır; oluşturulduktan sonra elemanları değiştirilemez. Normal parantez `()` ile tanımlanırlar. Bu özellikleri nedeniyle tuple'lar listelerden daha hızlıdır.
+
+## Sözlük (Dictionary) Nedir?
+Sözlükler, anahtar-değer (key-value) çiftlerini depolayan değiştirilebilir veri yapılarıdır. Süslü parantez `{}` ile tanımlanırlar. Her bir anahtar benzersiz olmalıdır. Örneğin: `{'isim': 'Ahmet', 'yas': 25}`.
+
+## Fonksiyon Nasıl Tanımlanır?
+Python'da fonksiyonlar `def` anahtar kelimesi ile tanımlanır. Parametre alabilir ve `return` ifadesi ile bir değer döndürebilirler.
+Örnek:
+def topla(a, b):
+    return a + b
+
+## RAG (Retrieval-Augmented Generation) Nedir?
+RAG, yapay zeka modellerinin cevap üretirken dış kaynaklı bilgi tabanlarından (örneğin yerel bir veritabanından) doğru bilgiyi "getirerek" (retrieval) kendi ön bilgisiyle harmanlaması (augmented generation) yöntemidir. Bu sayede model halüsinasyon görmez (yanlış bilgi uydurmaz) ve kaynağı gösterilebilir cevaplar verir.
