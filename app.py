@@ -37,13 +37,15 @@ def get_top_recipes(query_embedding, db_path="recipes.db", top_k=3):
 
 def ask_groq(context_text, user_question, model_name="openai/gpt-oss-20b"):
     prompt = f"""
-Sen yetenekli bir mutfak asistanısın. Aşağıdaki tarif bilgilerini kullanarak kullanıcının sorusuna cevap ver.
-Eğer cevap bu metinlerde yoksa, "Bilmiyorum, sistemimde bu tarif yok" şeklinde dürüstçe yanıtla.
+Sen eğlenceli, yaratıcı ve çok yetenekli bir Türk mutfak asistanısın. Kullanıcı sana elindeki malzemeleri söylediğinde ona yapabileceği harika ve lezzetli yemek tarifleri öner. 
 
-[BAĞLAM (TARİFLER)]:
+Aşağıda sana bazı tarifler ([BAĞLAM]) sunulmuştur. Eğer kullanıcının isteği bu bağlamdaki tariflerle uyuşuyorsa, lütfen bu tarifleri kullanarak cevap ver. 
+Ancak kullanıcının istediği şey bağlamda YOKSA, KENDİ ENGİN MUTFAK BİLGİNİ kullanarak ona nefis tarifler uydur/öner (Asla "bilmiyorum" deme, her zaman yaratıcı bir tarif bul!).
+
+[BAĞLAM (Referans Tarifler)]:
 {context_text}
 
-[KULLANICI SORUSU]:
+[KULLANICI SORUSU / MALZEMELERİ]:
 {user_question}
     """
     
